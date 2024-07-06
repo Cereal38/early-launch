@@ -1,0 +1,28 @@
+<footer class="w-full container mx-auto flex-shrink-0 px-4 py-8">
+    <!-- wrapper -->
+    <div class="bg-white dark:bg-zinc-800 flex items-center px-6 py-4 rounded-lg shadow justify-between">
+        <app-logo></app-logo>
+
+        <nav class="flex flex-wrap items-center space-x-3">
+            <a
+                href="https://github.com/juanmesa2097/angular-boilerplate"
+                title="Repository"
+                class="btn btn-fit"
+            >
+                <span class="icon-[mdi--github] text-3xl"></span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- copyright -->
+    <span class="block pt-6 text-sm text-gray-500 text-center">
+        © {{ currentYear }}
+        <a
+            href="https://github.com/juanmesa2097/angular-boilerplate"
+            class="hover:underline"
+        >
+            AngularBoilerplate
+        </a>
+        - {{ packageJson.version }} - Built on planet 🌎
+    </span>
+</footer>

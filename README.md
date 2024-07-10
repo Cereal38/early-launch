@@ -27,3 +27,11 @@ cd client
 docker build -t early-launch-client .
 docker run -p 4200:80 early-launch-client
 ```
+
+### Start the server Docker container individually
+
+```bash
+cd server
+docker build -t early-launch-server .
+docker run -p 8080:8080 early-launch-server
+```

@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - "4200:4200"
+    volumes:
+      - ./client:/app
   server:
     build:
       context: ./server

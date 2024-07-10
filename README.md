@@ -12,24 +12,14 @@ Early Launch is an open-source project that is developed to help you easily set 
 - Tailwind
 - Pnpm
 
-### Run the project with Docker
+### Run the project with Docker (Production)
 
 ```bash
-docker compose up
+docker compose -f docker-compose.prod.yml up -d
 ```
 
-### Run the client Docker container individually
+### Run the project with Docker (Development)
 
 ```bash
-cd client
-docker build -t early-launch-client .
-docker run -p 4200:80 early-launch-client
-```
-
-### Run the server Docker container individually
-
-```bash
-cd server
-docker build -t early-launch-server .
-docker run -p 8080:8080 early-launch-server
+docker compose -f docker-compose.dev.yml up
 ```

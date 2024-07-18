@@ -1,6 +1,6 @@
-# -------------
-# Build stage
-# -------------
+# ;-------------;
+# ; Build stage ;
+# ;-------------;
 FROM node:20-alpine as builder
 
 WORKDIR /app
@@ -9,20 +9,9 @@ RUN npm i -g pnpm
 
 COPY . .
 
-RUN --mount=type=cache,id=pnpm-store,target=/root/.pnpm-store \
-    pnpm install --frozen-lockfile && \
-    pnpm build
-
-# ---------------
-# Runtime stage
-# ---------------
-FROM node:20-alpine as runtime
-
-WORKDIR /app
-
-RUN npm install -g @angular/cli
-
-COPY --from=builder /app /app
+RUN pnpm install
 
 EXPOSE 4200
-CMD ["ng", "serve", "--host", "0.0.0.0", "--disable-host-check"]
+
+CMD ["pnpm", "dev:host"]
+

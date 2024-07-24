@@ -23,6 +23,10 @@ export const routes: Routes = [
         canMatch: [authGuard()],
     },
     {
+        path: 'form',
+        loadChildren: async () => (await import('@pages/form')).routes,
+    },
+    {
         path: '**',
         loadComponent: async () => (await import('@pages/screens/not-found/not-found.component')).NotFoundComponent,
     },

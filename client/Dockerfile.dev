@@ -1,17 +1,13 @@
-# ;-------------;
-# ; Build stage ;
-# ;-------------;
-FROM node:20-alpine as builder
+FROM node:20-alpine
 
 WORKDIR /app
 
+# Install usefull packages
 RUN npm i -g pnpm
 
+# Get the code
 COPY . .
-
-RUN pnpm install
 
 EXPOSE 4200
 
-CMD ["pnpm", "dev:host"]
-
+CMD ["pnpm", "dev"]

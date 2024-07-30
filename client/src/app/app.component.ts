@@ -1,22 +1,14 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { AuthService } from '@lib/services';
-import { ThemeService } from '@lib/services/theme';
-import { LayoutHorizontalComponent } from './lib/components/layouts/layout-horizontal/layout-horizontal.component';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { CustomButtonComponent } from './lib/components/custom-button/custom-button.component';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    imports: [CommonModule, RouterModule, LayoutHorizontalComponent],
-    templateUrl: './app.component.html',
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, CustomButtonComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
-    isAuthenticated$ = inject(AuthService).isAuthenticated$;
-
-    private readonly _themeService = inject(ThemeService);
-
-    ngOnInit(): void {
-        this._themeService.init();
-    }
+export class AppComponent {
+  title = 'client';
 }

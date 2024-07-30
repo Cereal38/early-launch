@@ -1,1 +1,6 @@
-<h1>Form page</h1>
+<div>
+  <form (submit)="onSubmit()">
+    <input [(ngModel)]="email" placeholder="Email" type="email" name="email" />
+    <button type="submit">Submit</button>
+  </form>
+</div>

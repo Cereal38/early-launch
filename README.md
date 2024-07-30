@@ -15,6 +15,7 @@ Early Launch is an open-source project that is developed to help you easily set 
 ### Run the project with Docker (Production)
 
 ```bash
+pnpm install
 docker compose -f docker-compose.prod.yml up -d
 ```
 

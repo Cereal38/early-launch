@@ -4,13 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-custom-button',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      custom-button works!
-    </p>
-  `,
-  styleUrl: './custom-button.component.css'
+  template: ` <p>custom-button works!</p> `, // TODO: Use templateUrl
+  styleUrl: './custom-button.component.css',
 })
-export class CustomButtonComponent {
-
-}
+export class CustomButtonComponent {}

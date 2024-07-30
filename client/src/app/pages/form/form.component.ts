@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     standalone: true,
-    imports: [],
+    imports: [FormsModule],
     templateUrl: './form.component.html',
 })
-export class FormComponent {}
+export class FormComponent {
+    email = '';
+
+    onSubmit(): void {
+        console.log(this.email);
+    }
+}

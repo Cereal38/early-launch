@@ -4,15 +4,10 @@ WORKDIR /app
 
 # Install usefull packages
 RUN npm i -g pnpm
-RUN npm i -g @angular/cli
 
-# Install node_modules
-COPY package.json ./
-RUN pnpm install
-
-# Copy the whole client code inside the container
+# Get the code
 COPY . .
 
 EXPOSE 4200
 
-CMD ["pnpm", "dev:host"]
+CMD ["pnpm", "dev"]

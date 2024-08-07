@@ -5,8 +5,5 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './custom-text-field.component.html',
-  styleUrl: './custom-text-field.component.css'
 })
-export class CustomTextFieldComponent {
-
-}
+export class CustomTextFieldComponent {}

@@ -46,4 +46,13 @@ app.post("/email", (req: any, res: any) => {
 
 app.listen(PORT, () => console.log(`App running on http://localhost:${PORT}`));
 
-db.close();
+process.on("SIGINT", () => {
+  console.log("Closing database connection...");
+  db.close((err: any) => {
+    if (err) {
+      console.error("Error closing database connection:", err);
+    } else {
+      console.log("Database connection closed successfully");
+    }
+  });
+});

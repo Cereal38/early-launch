@@ -12,8 +12,8 @@ export class CustomButtonComponent {
   constructor(private apiService: ApiService) {}
 
   onClick() {
-    this.apiService.getHello().subscribe((response) => {
-      console.log('TEST API FETCH', response);
+    this.apiService.postEmail('blabla@gmail.com').subscribe((response) => {
+      console.log('POST EMAIL', response);
     });
   }
 }

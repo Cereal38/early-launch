@@ -29,7 +29,7 @@ app.post("/user/:id", (req: any, res: any) => {
 });
 
 app.post("/email", (req: any, res: any) => {
-  const {email} = req.params;
+  const {email} = req.body;
 
   if (!email) {
     res.status(400).send({error: "No email provided"});

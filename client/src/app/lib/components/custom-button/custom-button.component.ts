@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-custom-button',
@@ -9,11 +8,9 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './custom-button.component.css',
 })
 export class CustomButtonComponent {
-  constructor(private apiService: ApiService) {}
+  @Output() handleClick = new EventEmitter<string>();
 
-  onClick() {
-    this.apiService.getHello().subscribe((response) => {
-      console.log('TEST API FETCH', response);
-    });
+  click() {
+    this.handleClick.emit();
   }
 }

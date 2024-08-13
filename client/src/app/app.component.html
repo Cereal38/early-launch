@@ -1,8 +1,8 @@
 <main class="main">
   <div class="content">
     <form class="main-form">
-      <app-custom-text-field class="field"></app-custom-text-field>
-      <app-custom-button class="field" (buttonClick)="handleButtonClick($event)"></app-custom-button>
+      <app-custom-text-field class="field" (handleChange)="setEmail($event)"></app-custom-text-field>
+      <app-custom-button class="field" (buttonClick)="handleSubmit($event)"></app-custom-button>
     </form>
   </div>
 </main>

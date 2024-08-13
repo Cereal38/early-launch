@@ -12,8 +12,13 @@ import { CustomTextFieldComponent } from './lib/components/custom-text-field/cus
 })
 export class AppComponent {
   title = 'client';
+  email = '';
 
-  handleButtonClick(data: string) {
-    console.log('BTN CLICK', data);
+  setEmail(value: string) {
+    this.email = value;
+  }
+
+  handleSubmit(data: string) {
+    console.log('BTN CLICK', this.email);
   }
 }

@@ -12,4 +12,8 @@ import { CustomTextFieldComponent } from './lib/components/custom-text-field/cus
 })
 export class AppComponent {
   title = 'client';
+
+  handleButtonClick(data: string) {
+    console.log('BTN CLICK', data);
+  }
 }

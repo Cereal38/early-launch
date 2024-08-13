@@ -11,14 +11,13 @@ import { ApiService } from '../../services/api.service';
 export class CustomButtonComponent {
   constructor(private apiService: ApiService) {}
 
-  @Output() buttonClick = new EventEmitter<string>();
+  @Output() handleClick = new EventEmitter<string>();
 
-  onClick() {
+  click() {
     // this.apiService.postEmail('blabla@gmail.com').subscribe((response) => {
     //   console.log('POST EMAIL', response);
     // });
 
-    const dataToSend = 'Hello from the button!';
-    this.buttonClick.emit(dataToSend);
+    this.handleClick.emit();
   }
 }

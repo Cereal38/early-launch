@@ -18,7 +18,7 @@ export class AppComponent {
     this.email = value;
   }
 
-  handleSubmit(data: string) {
+  handleSubmit() {
     console.log('BTN CLICK', this.email);
   }
 }

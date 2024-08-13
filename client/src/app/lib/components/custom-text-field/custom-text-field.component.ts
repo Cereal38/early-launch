@@ -13,7 +13,7 @@ export class CustomTextFieldComponent {
 
   @Output() handleChange = new EventEmitter<string>();
 
-  setText() {
+  input() {
     this.handleChange.emit(this.text);
   }
 }

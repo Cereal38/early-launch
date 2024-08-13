@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-custom-button',
   standalone: true,
   imports: [],
-  template: ` <p>custom-button works!</p> `, // TODO: Use templateUrl
+  templateUrl: './custom-button.component.html',
   styleUrl: './custom-button.component.css',
 })
-export class CustomButtonComponent {}
+export class CustomButtonComponent {
+  @Output() handleClick = new EventEmitter<string>();
+
+  click() {
+    this.handleClick.emit();
+  }
+}

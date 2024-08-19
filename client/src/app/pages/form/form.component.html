@@ -1,1 +1,6 @@
-<p>form works!</p>
+<div class="content">
+  <form class="main-form">
+    <app-custom-text-field class="field" (handleChange)="setEmail($event)"></app-custom-text-field>
+    <app-custom-button class="field" (handleClick)="handleSubmit()"></app-custom-button>
+  </form>
+</div>

@@ -10,7 +10,7 @@ app.use(cors()); // Enable CORS for all routes
 app.use(express.json());
 
 db.run(
-  `CREATE TABLE IF NOT EXISTS emails (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT)`
+  `CREATE TABLE IF NOT EXISTS emails (id INTEGER PRIMARY KEY AUTOINCREMENT, address TEXT)`
 );
 
 app.get("/", (req: any, res: any) => {
@@ -29,13 +29,13 @@ app.post("/user/:id", (req: any, res: any) => {
 });
 
 app.post("/email", (req: any, res: any) => {
-  const {email} = req.body;
+  const {address} = req.body;
 
-  if (!email) {
+  if (!address) {
     res.status(400).send({error: "No email provided"});
   }
 
-  db.run(`INSERT INTO emails (email) VALUES (?)`, email, (err: any) => {
+  db.run(`INSERT INTO emails (address) VALUES (?)`, address, (err: any) => {
     if (err) {
       res.status(500).send({error: "Error inserting email"});
     } else {

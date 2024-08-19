@@ -14,7 +14,6 @@ import { ApiService } from '../../lib/services/api.service';
 export class FormComponent {
   constructor(private apiService: ApiService) {}
 
-  title = 'client';
   email = '';
 
   setEmail(value: string) {

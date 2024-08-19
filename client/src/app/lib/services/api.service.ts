@@ -17,4 +17,8 @@ export class ApiService {
   postEmail(email: string): Observable<any> {
     return this._http.post(`${this.apiUrl}/email`, { email: email });
   }
+
+  getEmails(): Observable<any> {
+    return this._http.get(`${this.apiUrl}/email`);
+  }
 }

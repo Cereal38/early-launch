@@ -44,7 +44,7 @@ app.post("/email", (req: any, res: any) => {
   });
 });
 
-app.get("/emails", (req: any, res: any) => {
+app.get("/email", (req: any, res: any) => {
   db.all("SELECT * FROM emails", (err: any, rows: any) => {
     if (err) {
       res.status(500).send({error: "Error fetching emails"});

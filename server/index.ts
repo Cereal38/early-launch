@@ -49,7 +49,7 @@ app.get("/email", (req: any, res: any) => {
     if (err) {
       res.status(500).send({error: "Error fetching emails"});
     } else {
-      res.status(200).send({emails: rows});
+      res.status(200).send(rows);
     }
   });
 });

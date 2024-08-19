@@ -9,9 +9,12 @@ import { ApiService } from '../../lib/services/api.service';
   styleUrl: './admin.component.css',
 })
 export class AdminComponent {
+  emails = [];
+
   constructor(private apiService: ApiService) {
     this.apiService.getEmails().subscribe((response) => {
-      console.log('All emails: ', response);
+      console.log('All emails: ', response.emails);
+      this.emails = response;
     });
   }
 }

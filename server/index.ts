@@ -54,6 +54,18 @@ app.get("/email", (req: any, res: any) => {
   });
 });
 
+app.delete("/email/:id", (req: any, res: any) => {
+  const {id} = req.params;
+
+  db.run(`DELETE FROM emails WHERE id = ?`, id, (err: any) => {
+    if (err) {
+      res.status(500).send({error: "Error deleting email"});
+    } else {
+      res.status(200).send({message: "Email deleted successfully"});
+    }
+  });
+});
+
 app.listen(PORT, () => console.log(`App running on http://localhost:${PORT}`));
 
 process.on("SIGINT", () => {

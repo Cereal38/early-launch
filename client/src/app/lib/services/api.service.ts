@@ -21,4 +21,8 @@ export class ApiService {
   getEmails(): Observable<any> {
     return this._http.get(`${this.apiUrl}/email`);
   }
+
+  deleteEmail(id: number): Observable<any> {
+    return this._http.delete(`${this.apiUrl}/email/${id}`);
+  }
 }

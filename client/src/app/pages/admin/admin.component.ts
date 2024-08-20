@@ -19,4 +19,9 @@ export class AdminComponent {
       this.emails = response;
     });
   }
+
+  // When user delete an email, remove it from the list
+  removeEmail(id: number) {
+    this.emails = this.emails.filter((email) => email.id !== id);
+  }
 }

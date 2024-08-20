@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Email } from '../../../../lib/interfaces/email.interface';
 import { ApiService } from '../../../../lib/services/api.service';
 
@@ -13,10 +13,12 @@ export class EmailListItemComponent {
   constructor(private apiService: ApiService) {}
 
   @Input() email!: Email;
+  @Output() emailDeleted = new EventEmitter<number>();
 
   handleDelete() {
     this.apiService.deleteEmail(this.email.id).subscribe((response) => {
-      console.log(`${this.email.address} deleted`);
+      // Inform parent that this email has been deleted
+      this.emailDeleted.emit(this.email.id);
     });
   }
 }

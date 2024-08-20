@@ -1,6 +1,5 @@
 <div class="container">
   <h1>ADMIN</h1>
-  <div *ngFor="let email of emails">
-    <app-email-list-item [email]="email"></app-email-list-item>
-  </div>
+  <app-email-list-item *ngFor="let email of emails" [email]="email"
+    (emailDeleted)="removeEmail($event)"></app-email-list-item>
 </div>

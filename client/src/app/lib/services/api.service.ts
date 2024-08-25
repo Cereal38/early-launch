@@ -14,7 +14,15 @@ export class ApiService {
     return this._http.get(`${this.apiUrl}/`);
   }
 
-  postEmail(email: string): Observable<any> {
-    return this._http.post(`${this.apiUrl}/email`, { email: email });
+  postEmail(value: string): Observable<any> {
+    return this._http.post(`${this.apiUrl}/email`, { address: value });
+  }
+
+  getEmails(): Observable<any> {
+    return this._http.get(`${this.apiUrl}/email`);
+  }
+
+  deleteEmail(id: number): Observable<any> {
+    return this._http.delete(`${this.apiUrl}/email/${id}`);
   }
 }

@@ -3,13 +3,3 @@
   flex-direction: row;
   gap: 10px
 }
-
-button {
-  
-}
-
-.deleteBtn {
-  color: red;
-  border-color: red;
-  border-radius: 5px;
-}

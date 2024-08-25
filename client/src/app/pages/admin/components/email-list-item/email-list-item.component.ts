@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { Email } from '../../../../lib/interfaces/email.interface';
 import { ApiService } from '../../../../lib/services/api.service';
 
 @Component({
   selector: 'app-email-list-item',
   standalone: true,
-  imports: [],
+  imports: [HlmButtonDirective],
   templateUrl: './email-list-item.component.html',
   styleUrl: './email-list-item.component.css',
 })

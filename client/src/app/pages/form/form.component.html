@@ -1,10 +1,12 @@
 <div class="flex justify-center items-center h-screen">
   <form class="mx-4 flex flex-col w-[500px] gap-4">
     <app-custom-text-field class="w-full" (handleChange)="setEmail($event)"></app-custom-text-field>
+    <!-- Error alert -->
     <div hlmAlert variant="destructive" class="w-full">
-      <hlm-icon name="lucideAlertTriangle"></hlm-icon>
-      <h4 hlmAlertTitle>Error</h4>
-      <p hlmAlertDesc>Invalid email</p>
+      <div class="flex items-end gap-2">
+        <hlm-icon name="lucideAlertTriangle"></hlm-icon>
+        <h4 hlmAlertTitle>Error</h4>
+      </div>
     </div>
     <app-custom-button class="" (handleClick)="handleSubmit()"></app-custom-button>
   </form>

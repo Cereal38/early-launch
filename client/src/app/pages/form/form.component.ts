@@ -6,7 +6,6 @@ import { CustomButtonComponent } from '../../lib/components/custom-button/custom
 import { CustomTextFieldComponent } from '../../lib/components/custom-text-field/custom-text-field.component';
 import { ApiService } from '../../lib/services/api.service';
 import { HlmAlertIconDirective } from '../../lib/spartan-ng/ui-alert-helm/src/lib/hlm-alert-icon.directive';
-import { HlmAlertTitleDirective } from '../../lib/spartan-ng/ui-alert-helm/src/lib/hlm-alert-title.directive';
 import { HlmAlertDirective } from '../../lib/spartan-ng/ui-alert-helm/src/lib/hlm-alert.directive';
 import { HlmIconComponent } from '../../lib/spartan-ng/ui-icon-helm/src/lib/hlm-icon.component';
 
@@ -20,7 +19,6 @@ import { HlmIconComponent } from '../../lib/spartan-ng/ui-icon-helm/src/lib/hlm-
     HlmAlertDirective,
     HlmAlertDirective,
     HlmAlertIconDirective,
-    HlmAlertTitleDirective,
     HlmIconComponent,
   ],
   providers: [

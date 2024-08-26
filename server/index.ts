@@ -31,8 +31,11 @@ app.post("/user/:id", (req: any, res: any) => {
 app.post("/email", (req: any, res: any) => {
   const {address} = req.body;
 
-  if (!address) {
-    res.status(400).send({error: "No email provided"});
+  // Invalid address
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!address || !emailRegex.test(address)) {
+    res.status(400).send({error: "Invalid email address"});
+    return;
   }
 
   db.run(`INSERT INTO emails (address) VALUES (?)`, address, (err: any) => {

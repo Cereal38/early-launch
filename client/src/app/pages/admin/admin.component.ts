@@ -29,7 +29,14 @@ export class AdminComponent {
 
   constructor(private apiService: ApiService) {
     this.apiService.getEmails().subscribe((response) => {
-      this.emails = response;
+      // Format date
+      const rawEmails = response;
+
+      this.emails = rawEmails.map((email: Email) => {
+        // YYYY-MM-DD
+        email.date = email.date.slice(0, 10);
+        return email;
+      });
     });
   }
 

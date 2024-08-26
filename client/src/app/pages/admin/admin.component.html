@@ -7,13 +7,13 @@
       <hlm-th class="justify-end">Date</hlm-th>
     </hlm-trow>
     @for (email of emails; track email.id) {
-    <hlm-trow>
+    <hlm-trow class="css-row-hovered">
       <hlm-td>
         {{email.address}}
       </hlm-td>
       <hlm-td class="flex-1"></hlm-td>
       <hlm-td class="justify-end">
-        {{email.date}}
+        <span class="css-date">{{email.date}}</span>
         <button hlmBtn variant="destructive" (click)="removeEmail(email.id)">
           <hlm-icon name="lucideTrash2" />
         </button>

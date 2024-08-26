@@ -1,3 +1,11 @@
-.container {
-  padding-left: 10px
+.css-row-hovered button {
+  display: none
+}
+
+.css-row-hovered:hover button {
+  display: block
+}
+
+.css-row-hovered:hover .css-date {
+  display: none
 }

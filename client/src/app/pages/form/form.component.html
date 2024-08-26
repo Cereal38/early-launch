@@ -1,6 +1,11 @@
 <div class="content">
   <form class="main-form">
     <app-custom-text-field class="field" (handleChange)="setEmail($event)"></app-custom-text-field>
+    <div hlmAlert variant="destructive">
+      <hlm-icon name="lucideAlertTriangle"></hlm-icon>
+      <h4 hlmAlertTitle>Error</h4>
+      <p hlmAlertDesc>Invalid email</p>
+    </div>
     <app-custom-button class="field" (handleClick)="handleSubmit()"></app-custom-button>
   </form>
 </div>

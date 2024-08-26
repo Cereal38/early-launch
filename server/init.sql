@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS emails (id INTEGER PRIMARY KEY AUTOINCREMENT, address TEXT);
+CREATE TABLE IF NOT EXISTS emails (id INTEGER PRIMARY KEY AUTOINCREMENT, date datetime default current_timestamp, address TEXT);
 
 INSERT INTO emails (address) VALUES ('Evaëlle@example.com');
 INSERT INTO emails (address) VALUES ('Zéphyr@example.com');

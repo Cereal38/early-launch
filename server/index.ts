@@ -10,7 +10,7 @@ app.use(cors()); // Enable CORS for all routes
 app.use(express.json());
 
 db.run(
-  `CREATE TABLE IF NOT EXISTS emails (id INTEGER PRIMARY KEY AUTOINCREMENT, address TEXT)`
+  `CREATE TABLE IF NOT EXISTS emails (id INTEGER PRIMARY KEY AUTOINCREMENT, date datetime default current_timestamp, address TEXT)`
 );
 
 app.get("/", (req: any, res: any) => {

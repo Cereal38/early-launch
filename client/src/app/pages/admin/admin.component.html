@@ -14,6 +14,9 @@
       <hlm-td class="flex-1"></hlm-td>
       <hlm-td class="justify-end">
         {{email.date}}
+        <button hlmBtn variant="destructive" (click)="removeEmail(email.id)">
+          <hlm-icon name="lucideTrash2" />
+        </button>
       </hlm-td>
     </hlm-trow>
     }

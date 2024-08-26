@@ -45,8 +45,10 @@ export class AdminComponent {
     });
   }
 
-  // When user delete an email, remove it from the list
   removeEmail(id: number) {
-    this.emails = this.emails.filter((email) => email.id !== id);
+    // When user delete an email, also remove it from the list
+    this.apiService.deleteEmail(id).subscribe((response) => {
+      this.emails = this.emails.filter((email) => email.id !== id);
+    });
   }
 }

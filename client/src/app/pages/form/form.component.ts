@@ -44,10 +44,9 @@ export class FormComponent {
   handleSubmit() {
     this.apiService.postEmail(this.email).subscribe(
       (response) => {
-        console.log('POST EMAIL', response);
+        this.errorMsg = '';
       },
       (error) => {
-        console.log(error);
         this.errorMsg = error.error.message;
       }
     );

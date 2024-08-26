@@ -1,5 +1,19 @@
-<div class="container">
-  <h1>ADMIN</h1>
-  <app-email-list-item *ngFor="let email of emails" [email]="email"
-    (emailDeleted)="removeEmail($event)"></app-email-list-item>
+<div class="w-full pt-4">
+  <hlm-table class="m-auto max-w-[800px] min-w-[200px]">
+    <hlm-caption>A list of collected emails</hlm-caption>
+    <hlm-trow>
+      <hlm-th>Email</hlm-th>
+      <hlm-th class="flex-1"></hlm-th>
+      <hlm-th class="justify-end">Selected</hlm-th>
+    </hlm-trow>
+    @for (email of emails; track email.id) {
+    <hlm-trow>
+      <hlm-td>{{email.address}}</hlm-td>
+      <hlm-td class="flex-1"></hlm-td>
+      <hlm-td class="justify-end">
+        <hlm-checkbox />
+      </hlm-td>
+    </hlm-trow>
+    }
+  </hlm-table>
 </div>

@@ -10,7 +10,7 @@ app.use(cors()); // Enable CORS for all routes
 app.use(express.json());
 
 db.run(
-  `CREATE TABLE IF NOT EXISTS emails (id INTEGER PRIMARY KEY AUTOINCREMENT, date datetime default current_timestamp, address TEXT)`
+  `CREATE TABLE IF NOT EXISTS emails (id INTEGER PRIMARY KEY AUTOINCREMENT, date datetime default current_timestamp, address TEXT UNIQUE)`
 );
 
 app.get("/", (req: any, res: any) => {
@@ -40,7 +40,11 @@ app.post("/email", (req: any, res: any) => {
 
   db.run(`INSERT INTO emails (address) VALUES (?)`, address, (err: any) => {
     if (err) {
-      res.status(500).send({error: "Error inserting email"});
+      if (err.code === "SQLITE_CONSTRAINT") {
+        res.status(409).send({error: "Email already exists"});
+      } else {
+        res.status(500).send({error: "Error inserting email"});
+      }
     } else {
       res.status(200).send({message: "Email inserted successfully"});
     }

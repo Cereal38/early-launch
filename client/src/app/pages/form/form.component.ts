@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { lucideAlertTriangle } from '@ng-icons/lucide';
@@ -14,6 +15,7 @@ import { HlmIconComponent } from '../../lib/spartan-ng/ui-icon-helm/src/lib/hlm-
   standalone: true,
   imports: [
     RouterOutlet,
+    CommonModule,
     CustomTextFieldComponent,
     CustomButtonComponent,
     HlmAlertDirective,
@@ -33,14 +35,21 @@ export class FormComponent {
   constructor(private apiService: ApiService) {}
 
   email = '';
+  errorMsg = '';
 
   setEmail(value: string) {
     this.email = value;
   }
 
   handleSubmit() {
-    this.apiService.postEmail(this.email).subscribe((response) => {
-      console.log('POST EMAIL', response);
-    });
+    this.apiService.postEmail(this.email).subscribe(
+      (response) => {
+        console.log('POST EMAIL', response);
+      },
+      (error) => {
+        console.log(error);
+        this.errorMsg = error.error.message;
+      }
+    );
   }
 }

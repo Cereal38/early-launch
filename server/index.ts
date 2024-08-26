@@ -34,16 +34,16 @@ app.post("/email", (req: any, res: any) => {
   // Invalid address
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!address || !emailRegex.test(address)) {
-    res.status(400).send({error: "Invalid email address"});
+    res.status(400).send({message: "Invalid email address"});
     return;
   }
 
   db.run(`INSERT INTO emails (address) VALUES (?)`, address, (err: any) => {
     if (err) {
       if (err.code === "SQLITE_CONSTRAINT") {
-        res.status(409).send({error: "Email already exists"});
+        res.status(409).send({message: "Email already exists"});
       } else {
-        res.status(500).send({error: "Error inserting email"});
+        res.status(500).send({message: "Error inserting email"});
       }
     } else {
       res.status(200).send({message: "Email inserted successfully"});
@@ -54,7 +54,7 @@ app.post("/email", (req: any, res: any) => {
 app.get("/email", (req: any, res: any) => {
   db.all("SELECT * FROM emails", (err: any, rows: any) => {
     if (err) {
-      res.status(500).send({error: "Error fetching emails"});
+      res.status(500).send({message: "Error fetching emails"});
     } else {
       res.status(200).send(rows);
     }
@@ -66,7 +66,7 @@ app.delete("/email/:id", (req: any, res: any) => {
 
   db.run(`DELETE FROM emails WHERE id = ?`, id, (err: any) => {
     if (err) {
-      res.status(500).send({error: "Error deleting email"});
+      res.status(500).send({message: "Error deleting email"});
     } else {
       res.status(200).send({message: "Email deleted successfully"});
     }

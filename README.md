@@ -21,6 +21,15 @@ docker compose -f docker-compose.prod.yml up -d
 
 ### Run the project with Docker (Development)
 
+Create a .env file to store your secret key.
+It can be done using the following command (Replace the value with the one you want):
+
+```bash
+echo "SECRET_KEY=<YOUR_SECRET_KEY_VALUE>" > .env
+```
+
+Run docker
+
 ```bash
 docker compose -f docker-compose.dev.yml up --build
 ```

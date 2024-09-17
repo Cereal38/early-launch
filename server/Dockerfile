@@ -10,7 +10,8 @@ COPY . .
 RUN pnpm install && pnpm run build
 
 # Create sample data
-RUN sqlite3 /app/db.sqlite < /app/init.sql 
+RUN mkdir -p /app/db-data && touch /app/db-data/db.sqlite
+RUN sqlite3 /app/db-data/db.sqlite < /app/init.sql 
 
 EXPOSE 8080
 

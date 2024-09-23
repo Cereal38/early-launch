@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const sqlite3 = require("sqlite3").verbose();
+const jwt = require("jsonwebtoken");
 
 const app = express();
 const PORT = 8080;
@@ -71,6 +72,11 @@ app.delete("/email/:id", (req: any, res: any) => {
       res.status(200).send({message: "Email deleted successfully"});
     }
   });
+});
+
+app.get("/jwt", (req: any, res: any) => {
+  const token = jwt.sign({user: "admin"}, "secret", {expiresIn: "1h"});
+  res.status(200).send({token});
 });
 
 app.listen(PORT, () => console.log(`App running on http://localhost:${PORT}`));

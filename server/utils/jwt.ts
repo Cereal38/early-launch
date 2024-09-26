@@ -4,6 +4,8 @@ function generateJwtToken(data: any) {
   return jwt.sign(data, "secret", {expiresIn: "100h"});
 }
 
+// This function is a middleware.
+// It means to be used with authenticated endpoints
 function authenticateToken(req: any, res: any, next: any) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];

@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const sqlite3 = require("sqlite3").verbose();
 
+const jwtUtils = require("./utils/jwt");
+
 const app = express();
 const PORT = 8080;
 const db = new sqlite3.Database("./db-data/db.sqlite");
@@ -74,7 +76,7 @@ app.delete("/email/:id", (req: any, res: any) => {
 });
 
 app.get("/login", (req: any, res: any) => {
-  const token = generateJwtToken({user: "admin"});
+  const token = jwtUtils.generateJwtToken({user: "admin"});
   res.status(200).send({token});
 });
 

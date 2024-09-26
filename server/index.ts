@@ -74,8 +74,8 @@ app.delete("/email/:id", (req: any, res: any) => {
   });
 });
 
-app.get("/jwt", (req: any, res: any) => {
-  const token = jwt.sign({user: "admin"}, "secret", {expiresIn: "1h"});
+app.get("/login", (req: any, res: any) => {
+  const token = jwt.sign({user: "admin"}, "secret", {expiresIn: "100h"});
   res.status(200).send({token});
 });
 
